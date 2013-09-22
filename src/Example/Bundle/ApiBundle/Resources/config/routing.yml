@@ -13,4 +13,22 @@ user_get:
     defaults: { _controller: ExampleApiBundle:User:get, _format: ~ }
     requirements:
         _method: GET
-        id: "\d+"        
+        id: "\d+"
+
+user_add:
+    pattern: /users
+    defaults: { _controller: ExampleApiBundle:User:new, _format: ~ }
+    requirements:
+        _method: POST
+
+user_edit:
+    pattern:  /users/{id}
+    defaults: { _controller: ExampleApiBundle:User:edit, _format: ~ }
+    requirements:
+        _method: PUT
+
+user_delete:
+    pattern:  /users/{id}
+    defaults: { _controller: ExampleApiBundle:User:delete, _format: ~ }
+    requirements:
+        _method: DELETE

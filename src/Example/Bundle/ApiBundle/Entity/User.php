@@ -29,6 +29,7 @@ class User implements \JsonSerializable
      */
     private $password;
 
+
     public function jsonSerialize()
     {
         return [
@@ -36,6 +37,13 @@ class User implements \JsonSerializable
             'username' => $this->getUsername(),
             'email'    => $this->getEmail()
         ];
+    }
+
+    public function setBatch(Array $properties)
+    {
+        foreach ($properties as $key => $value) {
+            $this->$key = $value;
+        }   
     }
 
     /**
