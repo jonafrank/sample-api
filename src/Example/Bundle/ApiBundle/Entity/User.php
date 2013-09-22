@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * User
  */
-class User
+class User implements \JsonSerializable
 {
     /**
      * @var integer
@@ -29,6 +29,14 @@ class User
      */
     private $password;
 
+    public function jsonSerialize()
+    {
+        return [
+            'id'       => $this->getId(),
+            'username' => $this->getUsername(),
+            'email'    => $this->getEmail()
+        ];
+    }
 
     /**
      * Get id
@@ -107,5 +115,10 @@ class User
     public function getPassword()
     {
         return $this->password;
+    }
+
+     public function __sleep()
+    {
+        return array('id', 'username', 'email');
     }
 }

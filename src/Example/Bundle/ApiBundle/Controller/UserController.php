@@ -1,35 +1,45 @@
 <?php
 
-namespace Example\Bundle\ApiBundle\Controller
+namespace Example\Bundle\ApiBundle\Controller;
 
-use FOS\RestBundle\Controller\Annotations as Rest;
+
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Example\Bundle\ApiBundle\Entity\User;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {
-    /**
-     * @Rest\View
-     */
+    
     public function allAction()
     {
-        $users = $this->getDoctrine->getRepository('ExampleApiBundle:User')->findAll();
 
-        return array('users' => $users);
+        $users = $this->getDoctrine()->getRepository('ExampleApiBundle:User')->findAll();
+        $response = new Response();
+        if ($users)  {
+            $response->setStatusCode(200);
+            $response->setContent(json_encode($users, true));
+        } else {
+            throw new NotFoundHttpException('there are no Users');
+        }   
+
+        return $response;
     }
 
-    /**
-     * @Rest\View
-     */
+    
     public function getAction($id)
     {
-        $user =$this->getDoctrine->getRepository('ExampleApiBundle:User')->find($id);
 
-        if (!$user instanceof User) {
-            throw new NotFoundHttpException('User not found');
-        }
+        $users =$this->getDoctrine()->getRepository('ExampleApiBundle:User')->find($id);
 
-        return array('user' => $user);
+        $response = new Response();
+        if ($users)  {
+            $response->setStatusCode(200);
+            $response->setContent(json_encode($users, true));
+        } else {
+            throw new NotFoundHttpException('there are no Users');
+        }   
+
+        return $response;
     }
 }

@@ -1,3 +1,16 @@
 example_api_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: ExampleApiBundle:Default:index }
+
+user_all:
+    pattern:  /users
+    defaults: { _controller: ExampleApiBundle:User:all, _format: ~ }
+    requirements:
+        _method: GET
+
+user_get:
+    pattern:  /users/{id}
+    defaults: { _controller: ExampleApiBundle:User:get, _format: ~ }
+    requirements:
+        _method: GET
+        id: "\d+"        

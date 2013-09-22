@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "ba666879df6ab84cf8de1be327a8662d",
+    "hash": "306a13de5fbd37be68afb943bb7f1ad0",
     "packages": [
         {
             "name": "dflydev/markdown",
@@ -1494,17 +1494,17 @@
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "v2.3.4",
+            "version": "dev-master",
             "target-dir": "Sensio/Bundle/FrameworkExtraBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "cce05719041d952bbec856789ca18646a1891d03"
+                "reference": "aa21f258b341733a180d198208b6a90d9a82e217"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/cce05719041d952bbec856789ca18646a1891d03",
-                "reference": "cce05719041d952bbec856789ca18646a1891d03",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/aa21f258b341733a180d198208b6a90d9a82e217",
+                "reference": "aa21f258b341733a180d198208b6a90d9a82e217",
                 "shasum": ""
             },
             "require": {
@@ -1537,7 +1537,7 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2013-07-24 08:49:53"
+            "time": "2013-09-16 07:55:44"
         },
         {
             "name": "sensio/generator-bundle",
@@ -2123,6 +2123,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
+        "sensio/framework-extra-bundle": 20,
         "friendsofsymfony/rest-bundle": 20,
         "jms/serializer-bundle": 20,
         "nelmio/api-doc-bundle": 20
